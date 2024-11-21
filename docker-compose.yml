@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    volumes:
+      - ./www:/var/www/html
+    deploy:
+      mode: replicated
+      replicas: 6
+      endpoint_mode: dnsrr
+    ports:
+      - 8081-8090:80
+    depends_on:
+      - php
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile-php
+    deploy:
+      mode: replicated
+      replicas: 6
+      endpoint_mode: vip
+    volumes:
+      - ./www:/var/www/html
+    expose:
+      - 9000
