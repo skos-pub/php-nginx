@@ -14,7 +14,7 @@ services:
       - php
   php:
     pull_policy: build
-    image: php-nginx-php:x-${VERSION}
+    image: php-nginx-php:${VERSION}
     build:
       context: .
       dockerfile: Dockerfile-php-prod
