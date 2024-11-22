@@ -24,5 +24,6 @@ services:
       endpoint_mode: vip
     environment:
       - VERSION=${VERSION}
+      - SAYHI=${SAYHI}
     expose:
       - 9000
