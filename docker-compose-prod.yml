@@ -13,7 +13,7 @@ services:
     depends_on:
       - php
   php:
-    image: php-nginx-php:${VERSION}
+    image: php-nginx-php:x-${VERSION}
     build:
       context: .
       dockerfile: Dockerfile-php-prod
