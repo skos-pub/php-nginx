@@ -22,5 +22,7 @@ services:
       mode: replicated
       replicas: 1
       endpoint_mode: vip
+    environment:
+      - VERSION=${VERSION}
     expose:
       - 9000
